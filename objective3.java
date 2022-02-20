@@ -32,11 +32,27 @@ class objective3 {
     }
 
 
+    static void challenge3() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\nName separator challenge\n");
+
+        System.out.println("Enter full name: ");
+        String name = input.nextLine();
+        String[] names = name.split(" ");
+        //make first letter upper case
+        String forename = Character.toUpperCase(names[0].charAt(0)) + names[0].substring(1);
+        String surname = Character.toUpperCase(names[1].charAt(0)) + names[1].substring(1);
+        System.out.println("Forename: " + forename);
+        System.out.println("Surname: " + surname);
+    }
+
+
 
     public static void main(String[] args) {
 
         //challenge1();
-        challenge2();
+        //challenge2();
+        challenge3();
 
     }
 }
