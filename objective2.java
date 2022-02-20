@@ -78,13 +78,31 @@ class objective2 {
     }
 
 
+    static void challenge6() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\nFish tank volume challenge\n");
+
+        System.out.print("Enter length: ");
+        float length = input.nextFloat();
+        System.out.print("Enter depth: ");
+        float depth = input.nextFloat();
+        System.out.print("Enter height: ");
+        float height = input.nextFloat();
+
+        double volume = length * height * depth * 0.001;
+        System.out.println(volume + " litres");
+    }
+
+
+
     public static void main(String[] args) {
 
         //challenge1();
         //challenge2();
         //challenge3();
         //challenge4();
-        challenge5();
+        //challenge5();
+        challenge6();
 
     }
 }
