@@ -64,12 +64,27 @@ class objective2 {
 
     }
 
+
+    static void challenge5() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\nToy cars challenge\n");
+
+        System.out.print("Enter time in hours: ");
+        float time = input.nextFloat();
+        System.out.print("Enter number of toys made: ");
+        int toys = input.nextInt();
+        double wage = time * 9 + 0.6 * toys;
+        System.out.println("Your daily wage is: \u00A3" + wage);
+    }
+
+
     public static void main(String[] args) {
 
         //challenge1();
         //challenge2();
         //challenge3();
-        challenge4();
+        //challenge4();
+        challenge5();
 
     }
 }
