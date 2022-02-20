@@ -40,8 +40,8 @@ class objective3 {
         String name = input.nextLine();
         String[] names = name.split(" ");
         //make first letter upper case
-        String forename = Character.toUpperCase(names[0].charAt(0)) + names[0].substring(1);
-        String surname = Character.toUpperCase(names[1].charAt(0)) + names[1].substring(1);
+        String forename = Character.toUpperCase(names[0].charAt(0)) + names[0].substring(1).toLowerCase();
+        String surname = Character.toUpperCase(names[1].charAt(0)) + names[1].substring(1).toLowerCase();
         System.out.println("Forename: " + forename);
         System.out.println("Surname: " + surname);
     }
