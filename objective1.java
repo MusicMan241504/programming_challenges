@@ -1,5 +1,5 @@
 class objective1 {
-  public static void main(String[] args) {
+	static void challenge1() {
         System.out.println("\n\nVisual dice challenge\n");
 
         System.out.println("oooooooooooo");
@@ -9,8 +9,9 @@ class objective1 {
         System.out.println("o  #    #  o");
         System.out.println("o          o");
         System.out.println("oooooooooooo");
+	}
 
-
+    static void challenge2() {
         System.out.println("\n\nASCII art challenge\n");
 
         System.out.println("susfsjzfenxkzfedwvdsjfkfsub               ksgs                              rbz                                   fty                              shsyglxfgkf");
@@ -28,5 +29,12 @@ class objective1 {
         System.out.println("            bou                     kxhd        gehd            besg                   dheg           mied                   ckrt            ukkvdntk      ifnfdbb");
         System.out.println("juewfguefyffewuhweyfeyfygef           hslksgddlatc             jdfd                     vrjs         jdge                     xyfg              ifkvjdjvtxdhrjd");
         System.out.println("ukrektyrewiewrtvrwvtrwvyrwe               lsgf                hgdf                       mtsb       jesh                       rciu                heykrvbse");
+    
 	}
+
+
+    public static void main(String[] args) {
+        challenge1();
+        challenge2();
+    }
 }
