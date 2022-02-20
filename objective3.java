@@ -47,12 +47,29 @@ class objective3 {
     }
 
 
+    static void challenge4() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\nWord extractor challenge\n");
+
+        String sentence = "Quick brown fox jumps over the lazy dog";
+        System.out.println(sentence);
+        System.out.print("Enter word to extract: ");
+        String extract = input.nextLine();
+        int startIndex = sentence.indexOf(extract);
+        int endIndex = startIndex + extract.length();
+        sentence = sentence.substring(0,startIndex) + sentence.substring(endIndex+1);
+        System.out.println(sentence);
+    }
+
+
+
 
     public static void main(String[] args) {
 
         //challenge1();
         //challenge2();
-        challenge3();
+        //challenge3();
+        challenge4();
 
     }
 }
