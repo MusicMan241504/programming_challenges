@@ -1,4 +1,4 @@
-import java.util.Scanner;  
+import java.util.Scanner;
 
 class objective2 {
 
@@ -95,6 +95,27 @@ class objective2 {
 
 
 
+    static void challenge7() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\nCircle properties challenge\n");
+
+        System.out.print("Enter diameter: ");
+        float diameter = input.nextFloat();
+        float radius = diameter / 2;
+        System.out.println("Radius: " + radius);
+        double area = Math.pow(radius, 2) * Math.PI;
+        System.out.println("Area: " + area);
+        double circ = diameter * Math.PI;
+        System.out.println("Circumference: " + circ);
+        System.out.print("Enter arc angle in degrees: ");
+        float angle = input.nextFloat();
+        double arcLength = circ * angle / 360;
+        System.out.println("Arc length: " + arcLength);
+    }
+
+
+
+
     public static void main(String[] args) {
 
         //challenge1();
@@ -102,7 +123,8 @@ class objective2 {
         //challenge3();
         //challenge4();
         //challenge5();
-        challenge6();
+        //challenge6();
+        challenge7();
 
     }
 }
