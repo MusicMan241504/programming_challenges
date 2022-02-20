@@ -47,12 +47,29 @@ class objective2 {
     }
 
 
+
+    static void challenge4() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\n\nHeight & weight challenge\n");
+
+        System.out.print("Enter height in inches: ");
+        float inHeight = input.nextFloat();
+        System.out.print("Enter mass in stones: ");
+        float stMass = input.nextFloat();
+        //must be double to store to many dp
+        double cmHeight = inHeight * 2.54;
+        double kgMass = stMass * 6.364;
+
+        System.out.println(cmHeight + "cm " + kgMass + "kg");
+
+    }
+
     public static void main(String[] args) {
 
         //challenge1();
         //challenge2();
-        challenge3();
-
+        //challenge3();
+        challenge4();
 
     }
 }
