@@ -51,10 +51,18 @@ class objective4 {
     }
 
 
+    static void challenge4() {
+        Scanner input = new Scanner(System.in);
+        
+    }
+
+
+
 
     public static void main(String[] args) {
         //challenge1();
         //challenge2();
-        challenge3();
+        //challenge3();
+        challenge4();
     }
 }
