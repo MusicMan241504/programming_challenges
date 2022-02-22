@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class challenge6 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
     	System.out.println("\n\nNitrate Challenge\n");
     	System.out.print("Enter the nitrate level: a number between 1 and 50: ");
