@@ -1,1 +1,1 @@
-"R:\eclipse\java-2021-12\eclipse\tree-1.5.2.2-bin\bin\tree.exe" -H . -L 2 --noreport --charset utf-8 -D -o index.html
+"R:\eclipse\java-2021-12\eclipse\tree-1.5.2.2-bin\bin\tree.exe" -H . -L 2 --noreport --charset utf-8 -D -T "Programming Challenges" -I "*.bat|*.html" -o index.html
