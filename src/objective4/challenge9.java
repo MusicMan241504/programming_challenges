@@ -1,13 +1,21 @@
 package objective4;
-import org.json.simple.JSONObject;
+import java.io.FileReader;  
+import com.opencsv.CSVReader;  
 
 public class challenge9 {
-   public static void main(String[] args) {
-      JSONObject jsonObject = new JSONObject();
-      String text = "Text with special character /\"\'\b\f\t\r\n.";
-      System.out.println(text);
-      System.out.println("After escaping.");
-      text = jsonObject.escape(text);
-      System.out.println(text);
-   }
+	public static void main(String args[]) {
+		try {
+			//Instantiating the CSVReader class
+		    CSVReader reader = new CSVReader(new FileReader("/programming_challenges/src/objective4/periodictable.csv"));
+		    /Reading the contents of the csv file
+		      List list = reader.readAll();
+		      //Getting the Iterator object
+		      Iterator it = list.iterator();
+		      while(it.hasNext()) {
+		         String[] str = (String[]) it.next();
+		         System.out.println(Arrays.toString(str));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
