@@ -14,6 +14,7 @@ class objective4 {
         } else {
             System.out.println("Under 18");
         }
+        input.close();
     }
 
     
@@ -30,6 +31,7 @@ class objective4 {
         }else {
             System.out.println("Frozen");
         }
+        input.close();
     }
 
 
@@ -48,6 +50,7 @@ class objective4 {
         }else {
             System.out.println("FAIL");
         }
+        input.close();
     }
 
 
@@ -132,11 +135,12 @@ class objective4 {
         }else if (num == 6) {
             System.out.print(d6);
         }
+        input.close();
     }
 
 
 
-
+ 
     static void challenge5() {
         Scanner input = new Scanner(System.in);
         System.out.println("\n\nGreatest number challenge\n");
@@ -145,14 +149,37 @@ class objective4 {
         System.out.print("Enter number 2: ");
         int num2 = input.nextInt();
         System.out.println(Math.max(num1,num2));
+        input.close();
     }
 
 
+    
+    static void challenge6() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.println("\n\nNitrate Challenge\n");
+    	System.out.print("Enter the nitrate level: a number between 1 and 50: ");
+    	double nitrate = input.nextDouble();
+    	double dose = 0;
+    	if (nitrate > 10) {
+    		dose = 3;
+    	}else if (nitrate > 2.5) {
+    		dose = 2;
+    	}else if (nitrate > 1) {
+    		dose = 1;
+    	}else {
+    		dose = 0.5;
+    	}
+    	System.out.println("Dose " + dose + "ml");
+    	input.close();
+    }
+    
+    
     public static void main(String[] args) {
         //challenge1();
         //challenge2();
         //challenge3();
-        challenge4();
-        //challenge5();5
+        //challenge4();
+        //challenge5();
+    	challenge6();
     }
 }
