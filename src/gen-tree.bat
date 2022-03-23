@@ -1,1 +1,1 @@
-"..\..\..\windows\tree-1.5.2.2-bin\bin\tree.exe" -H . -L 2 --noreport --charset utf-8 -D -T "Programming Challenges" -I "*.bat|*.html" -o index.html
+"..\..\..\windows\tree-1.5.2.2-bin\bin\tree.exe" -H . -L 2 --noreport --charset utf-8 -T "Programming Challenges" -I "*.bat|*.html" -o index.html
