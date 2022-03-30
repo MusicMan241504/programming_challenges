@@ -12,14 +12,15 @@ public class challenge11 {
 		double hours = input.nextInt();
 		System.out.print("Enter hourly rate of pay: ");
 		double pay =  input.nextInt();
+		double grossPay;
 
 		//calculator
 		if (0 <= hours && hours <=60) {
 			if (hours <= 40) {
-				double grossPay = hours * pay;
+				grossPay = hours * pay;
 			} else {
-				double grossPay = 40 * pay;
-				grossPay = grossPay + pay * hours - 40;
+				grossPay = 40 * pay;
+				grossPay = grossPay + pay * 1.5 * (hours - 40);
 			}
 			System.out.println("£" + String.format("%.2f",grossPay));
 		} else {
