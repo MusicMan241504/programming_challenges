@@ -30,7 +30,7 @@ public class Main {
 				//get i char of string and convert to ascii
 				int num_ch = (int)num_cp.charAt(i);
 	            int guess_ch = (int)guess_cp.charAt(i);
-				if (num_ch == guess_ch) {
+				if (num_ch == guess_ch) {		//check if chars are the same
 					correct_ch++;
 					//prevent duplicates
 					guess_cp = guess_cp.substring(0, i) + "-" + guess_cp.substring(i + 1);
@@ -40,9 +40,9 @@ public class Main {
 			
 			//wrong place chars
 			for (int g_i = 0; g_i < 4; g_i++) {		//repeat for each char in string
-	            char guess_ch = guess_cp.charAt(g_i);
-	            int n_i = num_cp.indexOf(guess_ch);
-	            if (n_i != -1) {
+	            char guess_ch = guess_cp.charAt(g_i);		//get g_i index of guess copy
+	            int n_i = num_cp.indexOf(guess_ch);		//get index of char in string
+	            if (n_i != -1) {		//if char is in string
 	            	wrong_place_ch++;
 	            	//prevent duplicates
 	            	guess_cp = guess_cp.substring(0, g_i) + "-" + guess_cp.substring(g_i + 1);
