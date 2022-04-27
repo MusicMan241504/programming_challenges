@@ -14,6 +14,7 @@ class objective2 {
         int num2 = input.nextInt();
         int sum = num1 + num2;
         System.out.println(num1 + " + " + num2 + " = " + sum);
+        input.close();
     }
 
 
@@ -30,6 +31,7 @@ class objective2 {
 
         float mean = (float) (mark1 + mark2 + mark3) / 3;   // must convert to float to recieve answer as float
         System.out.println("Your average score is " + mean);
+        input.close();
 
     }
 
@@ -44,6 +46,7 @@ class objective2 {
         float cTemp = (fTemp - 32) * ((float) 5/9);
 
         System.out.println(fTemp + "\u00B0F = " + cTemp + "\u00B0C");
+        input.close();
     }
 
 
@@ -61,6 +64,7 @@ class objective2 {
         double kgMass = stMass * 6.364;
 
         System.out.println(cmHeight + "cm " + kgMass + "kg");
+        input.close();
 
     }
 
@@ -75,6 +79,7 @@ class objective2 {
         int toys = input.nextInt();
         double wage = time * 9 + 0.6 * toys;
         System.out.println("Your daily wage is: \u00A3" + wage);
+        input.close();
     }
 
 
@@ -91,6 +96,7 @@ class objective2 {
 
         double volume = length * height * depth * 0.001;
         System.out.println(volume + " litres");
+        input.close();
     }
 
 
@@ -111,6 +117,7 @@ class objective2 {
         float angle = input.nextFloat();
         double arcLength = circ * angle / 360;
         System.out.println("Arc length: " + arcLength);
+        input.close();
     }
 
 

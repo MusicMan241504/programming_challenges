@@ -13,6 +13,7 @@ class objective3 {
         String surname = input.nextLine().toUpperCase();
         String initial = Character.toString(forename.charAt(0)).toUpperCase();   //must convert to string so we can have different cases
         System.out.println(initial + " " + surname);
+        input.close();
 
     }
 
@@ -28,6 +29,7 @@ class objective3 {
         city1 = city1.substring(0, Math.min(city1.length(), 4));
         city2 = city2.substring(0, Math.min(city2.length(), 4));
         System.out.println(city1.toUpperCase() + "-" + city2.toUpperCase());
+        input.close();
 
     }
 
@@ -44,6 +46,7 @@ class objective3 {
         String surname = Character.toUpperCase(names[1].charAt(0)) + names[1].substring(1).toLowerCase();
         System.out.println("Forename: " + forename);
         System.out.println("Surname: " + surname);
+        input.close();
     }
 
 
@@ -59,6 +62,7 @@ class objective3 {
         int endIndex = startIndex + extract.length();
         sentence = sentence.substring(0,startIndex) + sentence.substring(endIndex+1);
         System.out.println(sentence);
+        input.close();
     }
 
 
