@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException  {
 		
-		loading(4,1.05);
+		loading(4,1.04);
 		print("Welcome to Zombieville\n");
 		Thread.sleep(500);
 		print("This town contains many zombies\n");
@@ -18,9 +18,9 @@ public class Main {
 		print("\nWhat is your username? ");
 		String username = input.nextLine();
 		print("\n" + username + " prepare to fight for your life\n");
-		loading(600,0.95);
+		loading(400,0.95);
 		print("RUN!!!!!!!!!!!!!!!!!!!!!!\n");
-		while (lives > 0 && defeat_chance < 1 && run_chance < 1) {
+		while (lives > 0 && defeat_chance < 1 && run_chance < 1 && (defeat_chance > 0 || run_chance > 0)) {
 			System.out.print("The chance you defeat a zombie is: " + defeat_chance + "\n");
 			System.out.print("The chance you outrun a zombie is: " + run_chance + "\n");
 			System.out.print("You have " + lives + " lives\n");
@@ -28,6 +28,8 @@ public class Main {
 		}
 		if (lives == 0) {
 			print("You run out of lives");
+		}else if(defeat_chance <= 0 && run_chance <= 0) {
+			print("The chance you defeat or outrun a zombie is 0");
 		}else {
 			print("You completed the game");
 		}
@@ -61,6 +63,8 @@ public class Main {
 		print("There is a zombie what do you want to do? kill it (k) / run (r) ");
 		String in = input.next();
 		if (in.equals("k")) {
+			print("Fighting\n");
+			loading(40,1);
 			if (Math.random() <= defeat_chance) {
 				defeat_chance = defeat_chance + 0.1;
 				print("You defeat the zombie\n");
@@ -71,6 +75,8 @@ public class Main {
 				print("The zombie injured you\n");
 			}
 		}else if (in.equals("r")) {
+			print("Running\n");
+			loading(40,1);
 			if (Math.random() <= run_chance) {
 				run_chance = run_chance + 0.1;
 				print("You outrun the zombie\n");
@@ -80,6 +86,12 @@ public class Main {
 				lives--;
 				print("The zombie injured you\n");
 			}
+		}
+		if (defeat_chance < 0) {
+			defeat_chance = 0;
+		}
+		if (run_chance < 0) {
+			run_chance = 0;
 		}
 	}
 	
