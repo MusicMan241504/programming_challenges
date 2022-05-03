@@ -37,7 +37,7 @@ public class Main {
 	
 	static String whoisxmlapi(String email) throws IOException{
 		String api = "at_VoVzsBikS9Znl9QIjB90ERr287UAm";
-		String urlStr = "https://emailverification.whoisxmlapi.com/api/v2?apiKey=" + api + "&emailAddress=" + email;
+		String urlStr = "http://emailverification.whoisxmlapi.com/api/v2?apiKey=" + api + "&emailAddress=" + email;
 		URL url = new URL(urlStr);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("GET");
@@ -65,7 +65,7 @@ public class Main {
 	
 	static String quickemail(String email) throws IOException{
 		String api = "42b5b6ab744670c0cb0853be7a03efef1d8f5e4567947cdfef7e9bcedc25";
-		String urlStr = "https://api.quickemailverification.com/v1/verify?email=" + email + "&apikey=" + api;
+		String urlStr = "http://api.quickemailverification.com/v1/verify?email=" + email + "&apikey=" + api;
 		URL url = new URL(urlStr);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("GET");
