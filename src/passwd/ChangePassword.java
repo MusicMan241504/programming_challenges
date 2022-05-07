@@ -14,7 +14,10 @@ public class ChangePassword {
 		
 		boolean auth = Main.authenticate(username, password);
 		
-		System.out.println(auth);
+		if (auth) {
+			System.out.print("New password: ");
+			String newPassword = input.nextLine();
+		}
 		
 
 

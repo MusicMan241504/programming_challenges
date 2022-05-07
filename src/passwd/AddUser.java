@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class AddUser {
 
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);			//create scanner object
+		Scanner input = new Scanner(System.in);				//create scanner object
 		
 		System.out.print("Username: ");
 		String username = input.nextLine();
