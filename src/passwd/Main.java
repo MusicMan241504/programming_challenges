@@ -1,5 +1,7 @@
 package passwd;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
@@ -11,6 +13,36 @@ import java.io.FileNotFoundException;
 
 public class Main {
 
+	public static void changePasswd(String username, String password) {
+		String passwd_hash = hash(password);							//hash password
+		List<String> lines = new ArrayList<String>();					//list for storing file contents
+		try {
+			//read file
+			File fObj = new File("./src/passwd/passwd.txt");
+			Scanner fReader = new Scanner(fObj);						//open file and create scanner object
+			while (fReader.hasNextLine()) {								//read every line
+				String data = fReader.nextLine();
+				if (data.indexOf(username + ":") != -1) {				//if line contains username
+					data = username + ":" + passwd_hash;				//change password
+				}
+				lines.add(data);
+			}
+			fReader.close();
+			
+			//write file
+			FileWriter fWriter = new FileWriter("./src/passwd/passwd.txt");
+			for (String line : lines) {
+				fWriter.write(line + "\n");
+			}
+			fWriter.close();
+			
+
+		} catch (Exception e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+	
 	
 	public static void newUser(String username, String password) {
 		String passwd_hash = hash(password);		//hash password
@@ -44,7 +76,6 @@ public class Main {
 		}
 		return auth;
 	}
-	
 	
 	
 	public static boolean authenticate(String username, String password) {	//function to verify username and password
