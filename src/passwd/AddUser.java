@@ -20,7 +20,6 @@ public class AddUser {
 		}else {
 			System.out.println("User already exists");
 		}
-		System.out.println(auth);
 		
 
 
