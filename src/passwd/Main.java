@@ -9,22 +9,6 @@ import java.io.FileNotFoundException;
 
 public class Main {
 
-	public static void main(String[] args) throws NoSuchAlgorithmException{
-		Scanner input = new Scanner(System.in);			//create scanner object
-		
-		String username = input.nextLine();
-		String password = input.nextLine();
-		
-		boolean auth = authenticate(username, password);
-		
-		System.out.println(auth);
-		
-
-
-		input.close();
-
-	}
-
 	public static boolean authenticate(String username, String password) {	//function to verify username and password
 		boolean auth = false;
 		String passwd_hash = hash(password);
