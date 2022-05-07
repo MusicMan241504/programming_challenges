@@ -2,6 +2,8 @@ package passwd;
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,6 +11,42 @@ import java.io.FileNotFoundException;
 
 public class Main {
 
+	
+	public static void newUser(String username, String password) {
+		String passwd_hash = hash(password);		//hash password
+		try {
+			FileWriter fWriter = new FileWriter("./src/passwd/passwd.txt", true);	//open file in append mode
+			fWriter.write(username + ":" + passwd_hash + "\n");
+			fWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static boolean usernameChk(String username) {	//method to check if username exists
+		boolean auth = false;
+		try {
+			File fObj = new File("./src/passwd/passwd.txt");
+			Scanner fReader = new Scanner(fObj);
+			while (fReader.hasNextLine()) {
+				String data = fReader.nextLine();
+				if (data.indexOf(username + ":") != -1) {
+					auth = true;
+				}
+			}
+			
+			fReader.close();
+
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return auth;
+	}
+	
+	
+	
 	public static boolean authenticate(String username, String password) {	//function to verify username and password
 		boolean auth = false;
 		String passwd_hash = hash(password);

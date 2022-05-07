@@ -12,8 +12,14 @@ public class AddUser {
 		System.out.print("Password: ");
 		String password = input.nextLine();
 		
-		boolean auth = Main.authenticate(username, "");			//authenticate with blank password tests for username
+		boolean auth = Main.usernameChk(username);			//checks if username already exists
 		
+		if (!auth) {	//if username not in file
+			Main.newUser(username,password);	//add user to file
+			System.out.println("User successfully added");
+		}else {
+			System.out.println("User already exists");
+		}
 		System.out.println(auth);
 		
 
