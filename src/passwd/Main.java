@@ -13,8 +13,7 @@ import java.io.FileNotFoundException;
 
 public class Main {
 
-	public static void changePasswd(String username, String password) {
-		String passwd_hash = hash(password);							//hash password
+	public static void changePasswd(String username, String passwd_hash) {
 		List<String> lines = new ArrayList<String>();					//list for storing file contents
 		try {
 			//read file
@@ -44,8 +43,7 @@ public class Main {
 	}
 	
 	
-	public static void newUser(String username, String password) {
-		String passwd_hash = hash(password);		//hash password
+	public static void newUser(String username, String passwd_hash) {
 		try {
 			FileWriter fWriter = new FileWriter("./src/passwd/passwd.txt", true);	//open file in append mode
 			fWriter.write(username + ":" + passwd_hash + "\n");
@@ -78,9 +76,8 @@ public class Main {
 	}
 	
 	
-	public static boolean authenticate(String username, String password) {	//function to verify username and password
+	public static boolean authenticate(String username, String passwd_hash) {	//function to verify username and password
 		boolean auth = false;
-		String passwd_hash = hash(password);
 		try {
 			File fObj = new File("./src/passwd/passwd.txt");
 			Scanner fReader = new Scanner(fObj);
@@ -102,16 +99,29 @@ public class Main {
 	}
 
 	
-	public static String hash(String passwd_str) {
+	public static String hash(char[] password) {
 		try {
+			//convert char array to byte array  
+			
+			byte[] passwdBytes = new byte[password.length];			//create byte array to add values to
+			
+			for(int i=0;i<password.length;i++){  
+				passwdBytes[i] = (byte) password[i]; 
+			}
+						
+			/*	//for debugging
+			for(int i=0;i<passwdBytes.length;i++){  
+				System.out.println(passwdBytes[i]);  
+				}*/
+			
 			// getInstance() method is called with algorithm SHA-512
 			MessageDigest md = MessageDigest.getInstance("SHA-512");
 
 			// digest() method is called
 			// to calculate message digest of the input string
 			// returned as array of byte
-			byte[] messageDigest = md.digest(passwd_str.getBytes());
-
+			byte[] messageDigest = md.digest(passwdBytes);
+			
 			// Convert byte array into signum representation
 			BigInteger no = new BigInteger(1, messageDigest);
 
