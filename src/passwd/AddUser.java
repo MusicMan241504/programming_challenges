@@ -17,19 +17,31 @@ public class AddUser {
 		
 		System.out.print("Username: ");
 		String username = input.nextLine();
+		
+		//password input
 		System.out.print("Password: ");
-		char[] password = con.readPassword();  				//get passwd input as array for security
-		String passwd_hash = Main.hash(password);
-		Arrays.fill(password, ' ');							//overwerite array to hide password
+		char[] password = con.readPassword();
+		String passwdHash = Main.hash(password);		//store password for as little time as possible
+		Arrays.fill(password, ' ');
+		//confirm password
+		System.out.print("Confirm password: ");
+		char[] confirmPassword = con.readPassword();
+		String confirmPasswdHash = Main.hash(confirmPassword);
+		Arrays.fill(confirmPassword, ' ');
 		
 		
-		boolean auth = Main.usernameChk(username);			//checks if username already exists
-		
-		if (!auth) {	//if username not in file
-			Main.newUser(username,passwd_hash);	//add user to file
-			System.out.println("User successfully added");
+		if (passwdHash.equals(confirmPasswdHash)) {		//if both passwords same
+			boolean auth = Main.usernameChk(username);			//checks if username already exists
+			
+			if (!auth) {	//if username not in file
+				Main.newUser(username,passwdHash);	//add user to file
+				System.out.println("User successfully added");
+			}else {
+				System.out.println("User already exists");
+			}
+			
 		}else {
-			System.out.println("User already exists");
+			System.out.println("Enter the same password");
 		}
 		
 

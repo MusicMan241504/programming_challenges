@@ -1,6 +1,6 @@
 @echo off
 
 set /p ID=
-java -classpath bin/ %ID%
+..\..\windows\jdk-18.0.1.1\bin\java.exe -classpath bin/ %ID%
 
 PAUSE

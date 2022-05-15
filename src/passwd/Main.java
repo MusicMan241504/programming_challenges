@@ -12,6 +12,17 @@ import java.security.NoSuchAlgorithmException;
 import java.io.FileNotFoundException;
 
 public class Main {
+	
+	
+	public static boolean chkPasswd(char[] password) {
+		boolean auth = true;
+		if (password.length < 8) {
+			auth = false;
+		}
+		
+		return auth;
+	}
+	
 
 	public static void changePasswd(String username, String passwd_hash) {
 		List<String> lines = new ArrayList<String>();					//list for storing file contents
