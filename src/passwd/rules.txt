@@ -1,2 +1,3 @@
-minlen=1
+minlen=8
 uppercase=1
+list=1
