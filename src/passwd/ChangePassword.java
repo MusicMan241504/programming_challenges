@@ -28,6 +28,12 @@ public class ChangePassword {
 		if (auth) {
 			System.out.print("New password: ");
 			char[] newPassword = con.readPassword();
+			boolean passwdChk = Main.chkPasswd(password);		//check if password passes rules
+			if (!passwdChk) {
+				Arrays.fill(password, ' ');
+				input.close();
+				return;
+			}
 			String newPasswdHash = Main.hash(newPassword);		//store password for as little time as possible
 			Arrays.fill(newPassword, ' ');
 			

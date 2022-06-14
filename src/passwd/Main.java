@@ -16,10 +16,55 @@ public class Main {
 	
 	public static boolean chkPasswd(char[] password) {
 		boolean auth = true;
-		if (password.length < 8) {
-			auth = false;
+		try {
+			File fObj = new File("./src/passwd/rules.txt");
+			Scanner fReader = new Scanner(fObj);
+			
+			int minlen = 6;
+			boolean upperCase = false;
+			
+			
+			//get rules from rules file
+			while (fReader.hasNextLine()) {
+				String data = fReader.nextLine();
+				
+				if (data.indexOf("minlen=") != -1) {		//if line contains minlen
+					minlen = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
+				}
+				if (data.indexOf("uppercase=") != -1) {		//if line contains uppercase
+					char upperCaseCh = data.charAt(data.indexOf("=")+1);					//get val after char
+					if (upperCaseCh == '1') {
+						upperCase = true;
+					}
+				}	
+			}
+			
+			
+			if (upperCase) {
+				boolean upperChar = false;
+				for(int i=0;i<password.length;i++){  
+					if (Character.isUpperCase(password[i])) {
+						upperChar = true;
+					}
+				}
+				if (!upperChar) {
+					auth = false;
+					System.out.println("Password must contain upper case");
+				}
+				
+				
+			}
+			if (password.length < minlen) {		//password length check
+				auth = false;
+				System.out.println("Password must be at least " + minlen + " chars long");
+			}
+			
+			
+			fReader.close();
+		} catch (FileNotFoundException e ) {
+			System.out.println("An error occurred");
+			e.printStackTrace();
 		}
-		
 		return auth;
 	}
 	

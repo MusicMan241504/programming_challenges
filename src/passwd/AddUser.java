@@ -21,6 +21,12 @@ public class AddUser {
 		//password input
 		System.out.print("Password: ");
 		char[] password = con.readPassword();
+		boolean passwdChk = Main.chkPasswd(password);		//check if password passes rules
+		if (!passwdChk) {
+			Arrays.fill(password, ' ');
+			input.close();
+			return;
+		}
 		String passwdHash = Main.hash(password);		//store password for as little time as possible
 		Arrays.fill(password, ' ');
 		//confirm password
