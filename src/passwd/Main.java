@@ -21,7 +21,7 @@ public class Main {
 			Scanner fReader = new Scanner(fObj);
 
 			int minlen = 6;
-			boolean upperCase = false;
+			int upperCase = 0;
 			boolean list = false;
 
 
@@ -33,10 +33,7 @@ public class Main {
 					minlen = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
 				}
 				if (data.indexOf("uppercase=") != -1) {		//if line contains uppercase
-					char upperCaseCh = data.charAt(data.indexOf("=")+1);					//get val after char
-					if (upperCaseCh == '1') {
-						upperCase = true;
-					}
+					upperCase = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
 				}
 				if (data.indexOf("list=") != -1) {		//if line contains list
 					char listCh = data.charAt(data.indexOf("=")+1);					//get val after char
@@ -51,16 +48,16 @@ public class Main {
 			//password checks
 
 			//uppercase
-			if (upperCase) {
-				boolean upperChar = false;
+			if (upperCase > 0) {
+				int upperChars = 0;
 				for(int i=0;i<password.length;i++){  
 					if (Character.isUpperCase(password[i])) {
-						upperChar = true;
+						upperChars++;
 					}
 				}
-				if (!upperChar) {
+				if (upperChars < upperCase) {
 					auth = false;
-					System.out.println("Password must contain upper case");
+					System.out.println("Password must contain " + upperCase + " upper case chars");
 				}
 			}
 
