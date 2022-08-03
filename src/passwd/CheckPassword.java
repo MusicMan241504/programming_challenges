@@ -64,14 +64,14 @@ public class CheckPassword {
 			fReader.close();
 
 			// password checks
-			auth = uppercaseChk(upperCase, password)&&auth;
-			auth = lowercaseChk(lowerCase, password)&&auth;
-			auth = numbersChk(numbers, password)&&auth;
-			auth = specialChk(special, password)&&auth;
-			auth = minlenChk(minlen, password)&&auth;
-			auth = listChk(list, password)&&auth;
-			auth = usernameChk(isUserName, username, password)&&auth;
-			auth = newCheck(isNew, username, password)&&auth;
+			auth = uppercaseChk(upperCase, password) && auth;
+			auth = lowercaseChk(lowerCase, password) && auth;
+			auth = numbersChk(numbers, password) && auth;
+			auth = specialChk(special, password) && auth;
+			auth = minlenChk(minlen, password) && auth;
+			auth = listChk(list, password) && auth;
+			auth = usernameChk(isUserName, username, password) && auth;
+			auth = newCheck(isNew, username, password) && auth;
 
 		} catch (FileNotFoundException e) {
 			System.out.println("An error occurred");

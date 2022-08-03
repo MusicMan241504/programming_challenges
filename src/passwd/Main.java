@@ -14,27 +14,26 @@ import java.io.FileNotFoundException;
 public class Main {
 
 	public static void changePasswd(String username, String passwd_hash) {
-		List<String> lines = new ArrayList<String>();					//list for storing file contents
+		List<String> lines = new ArrayList<String>(); // list for storing file contents
 		try {
-			//read file
+			// read file
 			File fObj = new File("./src/passwd/passwd.txt");
-			Scanner fReader = new Scanner(fObj);						//open file and create scanner object
-			while (fReader.hasNextLine()) {								//read every line
+			Scanner fReader = new Scanner(fObj); // open file and create scanner object
+			while (fReader.hasNextLine()) { // read every line
 				String data = fReader.nextLine();
-				if (data.indexOf(username + ":") != -1) {				//if line contains username
-					data = username + ":" + passwd_hash;				//change password
+				if (data.indexOf(username + ":") != -1) { // if line contains username
+					data = username + ":" + passwd_hash; // change password
 				}
 				lines.add(data);
 			}
 			fReader.close();
 
-			//write file
+			// write file
 			FileWriter fWriter = new FileWriter("./src/passwd/passwd.txt");
 			for (String line : lines) {
 				fWriter.write(line + "\n");
 			}
 			fWriter.close();
-
 
 		} catch (Exception e) {
 			System.out.println("An error occurred.");
@@ -42,10 +41,9 @@ public class Main {
 		}
 	}
 
-
 	public static void newUser(String username, String passwd_hash) {
 		try {
-			FileWriter fWriter = new FileWriter("./src/passwd/passwd.txt", true);	//open file in append mode
+			FileWriter fWriter = new FileWriter("./src/passwd/passwd.txt", true); // open file in append mode
 			fWriter.write(username + ":" + passwd_hash + "\n");
 			fWriter.close();
 		} catch (IOException e) {
@@ -53,8 +51,7 @@ public class Main {
 		}
 	}
 
-
-	public static boolean usernameChk(String username) {	//method to check if username exists
+	public static boolean usernameChk(String username) { // method to check if username exists
 		boolean auth = false;
 		try {
 			File fObj = new File("./src/passwd/passwd.txt");
@@ -75,8 +72,8 @@ public class Main {
 		return auth;
 	}
 
-
-	public static boolean authenticate(String username, String passwd_hash) {	//function to verify username and password
+	public static boolean authenticate(String username, String passwd_hash) { // function to verify username and
+																				// password
 		boolean auth = false;
 		try {
 			File fObj = new File("./src/passwd/passwd.txt");
@@ -98,21 +95,20 @@ public class Main {
 
 	}
 
-
 	public static String hash(char[] password) {
 		try {
-			//convert char array to byte array  
+			// convert char array to byte array
 
-			byte[] passwdBytes = new byte[password.length];			//create byte array to add values to
+			byte[] passwdBytes = new byte[password.length]; // create byte array to add values to
 
-			for(int i=0;i<password.length;i++){  
-				passwdBytes[i] = (byte) password[i]; 
+			for (int i = 0; i < password.length; i++) {
+				passwdBytes[i] = (byte) password[i];
 			}
 
-			/*	//for debugging
-			for(int i=0;i<passwdBytes.length;i++){  
-				System.out.println(passwdBytes[i]);  
-				}*/
+			/*
+			 * //for debugging for(int i=0;i<passwdBytes.length;i++){
+			 * System.out.println(passwdBytes[i]); }
+			 */
 
 			// getInstance() method is called with algorithm SHA-512
 			MessageDigest md = MessageDigest.getInstance("SHA-512");
