@@ -1,3 +1,8 @@
-minlen=16
-uppercase=4
-list=1
+minlen=0
+uppercase=0
+lowercase=0
+specialchar=0
+list=0
+numbers=0
+isusername=0
+isnew=1

@@ -28,7 +28,7 @@ public class ChangePassword {
 		if (auth) {
 			System.out.print("New password: ");
 			char[] newPassword = con.readPassword();
-			boolean passwdChk = Main.chkPasswd(password);		//check if password passes rules
+			boolean passwdChk = Main.chkPasswd(username,newPassword);		//check if password passes rules
 			if (!passwdChk) {
 				Arrays.fill(password, ' ');
 				input.close();

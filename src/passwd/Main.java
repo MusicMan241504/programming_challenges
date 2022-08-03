@@ -14,15 +14,20 @@ import java.io.FileNotFoundException;
 public class Main {
 
 
-	public static boolean chkPasswd(char[] password) {
+	public static boolean chkPasswd(String username, char[] password) {
 		boolean auth = true;
 		try {
 			File fObj = new File("./src/passwd/rules.txt");
 			Scanner fReader = new Scanner(fObj);
 
-			int minlen = 6;
+			int minlen = 1;
 			int upperCase = 0;
+			int lowerCase = 0;
+			int numbers = 0;
+			int special = 0;
 			boolean list = false;
+			boolean isUserName = false;
+			boolean isNew = false;
 
 
 			//get rules from rules file
@@ -35,10 +40,31 @@ public class Main {
 				if (data.indexOf("uppercase=") != -1) {		//if line contains uppercase
 					upperCase = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
 				}
+				if (data.indexOf("lowercase=") != -1) {		//if line contains lowercase
+					lowerCase = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
+				}
+				if (data.indexOf("numbers=") != -1) {		//if line contains numbers
+					numbers = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
+				}
+				if (data.indexOf("specialchar=") != -1) {		//if line contains specialchar
+					special = Integer.valueOf(data.substring(data.indexOf("=")+1));			//get value after = char
+				}
 				if (data.indexOf("list=") != -1) {		//if line contains list
 					char listCh = data.charAt(data.indexOf("=")+1);					//get val after char
 					if (listCh == '1') {
 						list = true;
+					}
+				}
+				if (data.indexOf("isusername=") != -1) {		//if line contains isusername
+					char isUserNameCh = data.charAt(data.indexOf("=")+1);					//get val after char
+					if (isUserNameCh == '1') {
+						isUserName = true;
+					}
+				}
+				if (data.indexOf("isnew=") != -1) {		//if line contains isnew
+					char isNewCh = data.charAt(data.indexOf("=")+1);					//get val after char
+					if (isNewCh == '1') {
+						isNew = true;
 					}
 				}
 
@@ -57,7 +83,49 @@ public class Main {
 				}
 				if (upperChars < upperCase) {
 					auth = false;
-					System.out.println("Password must contain " + upperCase + " upper case chars");
+					System.out.println("Password must contain at least " + upperCase + " upper case chars");
+				}
+			}
+			
+			//lowercase
+			if (lowerCase > 0) {
+				int lowerChars = 0;
+				for(int i=0;i<password.length;i++){  
+					if (Character.isLowerCase(password[i])) {
+						lowerChars++;
+					}
+				}
+				if (lowerChars < lowerCase) {
+					auth = false;
+					System.out.println("Password must contain at least " + lowerCase + " lower case chars");
+				}
+			}
+			
+			//numbers
+			if (numbers > 0) {
+				int numChars = 0;
+				for(int i=0;i<password.length;i++){  
+					if (Character.isDigit(password[i])) {
+						numChars++;
+					}
+				}
+				if (numChars < numbers) {
+					auth = false;
+					System.out.println("Password must contain at least " + numbers + " numbers");
+				}
+			}
+			
+			//special chars
+			if (special > 0) {
+				int specialChars = 0;
+				for(int i=0;i<password.length;i++){  
+					if (!Character.isLetterOrDigit(password[i])) {
+						specialChars++;
+					}
+				}
+				if (specialChars < special) {
+					auth = false;
+					System.out.println("Password must contain at least " + special + " special chars");
 				}
 			}
 
@@ -91,6 +159,33 @@ public class Main {
 					}
 				}
 				listReader.close();
+			}
+			
+			//is user name check on
+			if (isUserName) {
+				boolean chEqual = true;
+				if (password.length == username.length()) {	//if equal length
+					for(int i=0;i<username.length();i++){  	//loop through every char in passwd
+						if (password[i] != username.charAt(i)) {
+							chEqual = false;
+						}
+					}
+				}else {
+					chEqual = false;
+				}
+				if (chEqual) {
+					auth = false;
+					System.out.print("Password is same as username\n");
+				}
+			}
+			
+			//is new password
+			if (isNew) {
+				String passwd_hash = Main.hash(password);
+				if (Main.authenticate(username,passwd_hash)) {
+					auth = false;
+					System.out.print("Password is unchanged\n");
+				}
 			}
 
 
