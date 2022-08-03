@@ -1,8 +1,8 @@
-minlen=0
-uppercase=0
-lowercase=0
-specialchar=0
-list=0
-numbers=0
-isusername=0
+minlen=8
+uppercase=1
+lowercase=1
+specialchar=1
+list=1
+numbers=1
+isusername=1
 isnew=1

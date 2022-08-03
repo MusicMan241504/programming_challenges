@@ -21,7 +21,7 @@ public class AddUser {
 		//password input
 		System.out.print("Password: ");
 		char[] password = con.readPassword();
-		boolean passwdChk = Main.chkPasswd(username,password);		//check if password passes rules
+		boolean passwdChk = CheckPassword.Main(username,password);		//check if password passes rules
 		if (!passwdChk) {
 			Arrays.fill(password, ' ');
 			input.close();
