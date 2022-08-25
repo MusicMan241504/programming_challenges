@@ -11,25 +11,22 @@ public class Challenge2 {
 		char startChar;
 		ArrayList<String> items = new ArrayList<String>();
 
-		for(startChar = 'A'; startChar <= 'Z'; startChar++) {
+		for (startChar = 'A'; startChar <= 'Z'; startChar++) {
 			System.out.print("Enter an item starting with '" + startChar + "': ");
 			items.add(input.nextLine());
 
 			System.out.print("I went to the market and bought");
-			for(int i = 0; i < items.size(); i++) {
-				if(items.size() - i == 1) {//if 1 item left
+			for (int i = 0; i < items.size(); i++) {
+				if (items.size() - i == 1) {// if 1 item left
 					System.out.println(" a " + items.get(i));
-				}else if(items.size() - i == 2){//if 2 items left
+				} else if (items.size() - i == 2) {// if 2 items left
 					System.out.print(" a " + items.get(i) + " and");
-				}else {
+				} else {
 
 					System.out.print(" a " + items.get(i) + ",");
 				}
 			}
 		}
-
-
-
 
 		input.close();
 
