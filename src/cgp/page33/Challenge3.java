@@ -7,7 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 public class Challenge3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
 		String animal = "elephant";
 		System.out.println(
