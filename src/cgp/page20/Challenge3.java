@@ -9,7 +9,7 @@ public class Challenge3 {
 		System.out.print("Enter the snakes name: ");;
 		String name = input.nextLine();
 		
-		System.out.println("                     .-=-.          .--.\n         __        .'     '.       /  \" )	     " + name + "       	\n _     .'  '.     /   .-.   \\     /  .-'\\\n( \\   / .-.  \\   /   /   \\   \\   /  /    ^\n \\ `-` /   \\  `-'   /     \\   `-`  /\n  `-.-`     '.____.'       `.____.'");
+		System.out.println("                     .-=-.          .--.\n         __        .'     '.       /  \" )	  " + name + "\n _     .'  '.     /   .-.   \\     /  .-'\\\n( \\   / .-.  \\   /   /   \\   \\   /  /    ^\n \\ `-` /   \\  `-'   /     \\   `-`  /\n  `-.-`     '.____.'       `.____.'");
 		
 		
 		input.close();
