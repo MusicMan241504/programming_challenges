@@ -4,15 +4,15 @@ package sorts;
 public class Main {
 
 	public static void main(String[] args) {
-		double[] list = randArray(1000000,0,1000000);
-		double[] sortedList = bubblesort(list);
+		double[] list = randArray(50000,0,100000);
+		double[] sortedList = insertionSort(list);
 		for(double item : sortedList) {
 			System.out.println(item);
 		}
 
 	}
 	
-	public static double[] bubblesort(double[] list) {
+	public static double[] bubbleSort(double[] list) {
 		boolean swaps = true;
 		while(swaps) {
 			swaps = false;
@@ -24,6 +24,20 @@ public class Main {
 					swaps = true;
 				}
 			}
+		}
+		return list;
+	}
+	
+	public static double[] insertionSort(double[] list) {
+		for (int i = 1; i < list.length; i++) {
+			double tmp = list[i];
+			int i2 = i-1;
+			while (i2 >= 0 && tmp < list[i2]) {
+				list[i2+1] = list[i2];
+				i2 = i2 - 1;
+			}
+			list[i2+1] = tmp;
+			
 		}
 		return list;
 	}
