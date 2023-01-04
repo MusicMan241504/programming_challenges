@@ -4,13 +4,23 @@ package sorts;
 public class Main {
 
 	public static void main(String[] args) {
-		double[] list = randArray(1000000,0,1000000);
+		double[] list = randArray(10000000,0,1000000000);
 		//printArray(list);
-		System.out.println("\n\n\n");
+		//System.out.println("\n\n\n");
+		
+		long startTime = System.nanoTime();
+		
 		//bubbleSort(list);
 		//insertionSort(list);
-		mergeSort(list,0,list.length-1);
-		printArray(list);
+		//mergeSort(list,0,list.length-1);
+		quickSort(list,0,list.length-1);
+		
+		long endTime = System.nanoTime();
+		long time = endTime-startTime;
+		System.out.println(time/1000000.0 + " ms");
+				
+		//printArray(list);
+		System.out.println(isSorted(list));
 
 	}
 	
@@ -20,6 +30,16 @@ public class Main {
 		}
 	}
 	
+	public static boolean isSorted(double[] list) {
+		boolean sorted = true;
+		for (int i = 0; i < list.length-1; i++) {
+			if (list[i] > list[i+1]) {
+				sorted = false;
+			}
+		}
+		return sorted;
+	}
+
 	public static void bubbleSort(double[] list) {
 		boolean swaps = true;
 		while(swaps) {
@@ -105,4 +125,8 @@ public class Main {
 		}
 	}
 
+	public static void quickSort(double[] list, int left, int right) {
+		if left < right:
+			
+	}
 }

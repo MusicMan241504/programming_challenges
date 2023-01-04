@@ -1,88 +1,82 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta name="Author" content="Made by 'tree'">
- <meta name="GENERATOR" content="$Version: $ tree v2.0.2 (c) 1996 - 2022 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro $">
- <title>Programming Challenges</title>
- <style type="text/css">
-  BODY { font-family : monospace, sans-serif;  color: black;}
-  P { font-family : monospace, sans-serif; color: black; margin:0px; padding: 0px;}
-  A:visited { text-decoration : none; margin : 0px; padding : 0px;}
-  A:link    { text-decoration : none; margin : 0px; padding : 0px;}
-  A:hover   { text-decoration: underline; background-color : yellow; margin : 0px; padding : 0px;}
-  A:active  { margin : 0px; padding : 0px;}
-  .VERSION { font-size: small; font-family : arial, sans-serif; }
-  .NORM  { color: black;  }
-  .FIFO  { color: purple; }
-  .CHAR  { color: yellow; }
-  .DIR   { color: blue;   }
-  .BLOCK { color: yellow; }
-  .LINK  { color: aqua;   }
-  .SOCK  { color: fuchsia;}
-  .EXEC  { color: green;  }
- </style>
-</head>
-<body>
-	<h1>Programming Challenges</h1><p>
-	<a class="DIR" href=".">.</a><br>
-	├── <a class="DIR" href="./averages/">averages</a><br>
-	│   └── <a class="EXEC" href="./averages/Main.java">Main.java</a><br>
-	├── <a class="DIR" href="./cgp/">cgp</a><br>
-	│   ├── <a class="DIR" href="./cgp/page20/">page20</a><br>
-	│   │   ├── <a class="EXEC" href="./cgp/page20/Challenge1.java">Challenge1.java</a><br>
-	│   │   ├── <a class="EXEC" href="./cgp/page20/Challenge2.java">Challenge2.java</a><br>
-	│   │   └── <a class="EXEC" href="./cgp/page20/Challenge3.java">Challenge3.java</a><br>
-	│   └── <a class="DIR" href="./cgp/page33/">page33</a><br>
-	│   &nbsp;&nbsp;&nbsp; ├── <a class="EXEC" href="./cgp/page33/Challenge1.java">Challenge1.java</a><br>
-	│   &nbsp;&nbsp;&nbsp; ├── <a class="EXEC" href="./cgp/page33/Challenge2.java">Challenge2.java</a><br>
-	│   &nbsp;&nbsp;&nbsp; ├── <a class="EXEC" href="./cgp/page33/Challenge3.java">Challenge3.java</a><br>
-	│   &nbsp;&nbsp;&nbsp; └── <a class="EXEC" href="./cgp/page33/Challenge4.java">Challenge4.java</a><br>
-	├── <a class="DIR" href="./email_validator/">email_validator</a><br>
-	│   └── <a class="EXEC" href="./email_validator/Main.java">Main.java</a><br>
-	├── <a class="EXEC" href="./gen-tree">gen-tree</a><br>
-	├── <a class="EXEC" href="./gen-tree.bat">gen-tree.bat</a><br>
-	├── <a class="EXEC" href="./index.html">index.html</a><br>
-	├── <a class="DIR" href="./mastermind/">mastermind</a><br>
-	│   └── <a class="EXEC" href="./mastermind/Main.java">Main.java</a><br>
-	├── <a class="EXEC" href="./objective1.java">objective1.java</a><br>
-	├── <a class="EXEC" href="./objective2.java">objective2.java</a><br>
-	├── <a class="EXEC" href="./objective3.java">objective3.java</a><br>
-	├── <a class="DIR" href="./objective4/">objective4</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge10.java">challenge10.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge11.java">challenge11.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge1.java">challenge1.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge2.java">challenge2.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge3.java">challenge3.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge4.java">challenge4.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge5.java">challenge5.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge6.java">challenge6.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge7.java">challenge7.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge8.java">challenge8.java</a><br>
-	│   ├── <a class="EXEC" href="./objective4/challenge9.java">challenge9.java</a><br>
-	│   └── <a class="EXEC" href="./objective4/periodictable.csv">periodictable.csv</a><br>
-	├── <a class="DIR" href="./passwd/">passwd</a><br>
-	│   ├── <a class="EXEC" href="./passwd/AddUser.java">AddUser.java</a><br>
-	│   ├── <a class="EXEC" href="./passwd/ChangePassword.java">ChangePassword.java</a><br>
-	│   ├── <a class="EXEC" href="./passwd/CheckPassword.java">CheckPassword.java</a><br>
-	│   ├── <a class="EXEC" href="./passwd/Main.java">Main.java</a><br>
-	│   ├── <a class="EXEC" href="./passwd/passwd.txt">passwd.txt</a><br>
-	│   ├── <a class="EXEC" href="./passwd/rockyou.txt">rockyou.txt</a><br>
-	│   ├── <a class="EXEC" href="./passwd/rockyou.txt.gz">rockyou.txt.gz</a><br>
-	│   └── <a class="EXEC" href="./passwd/rules.txt">rules.txt</a><br>
-	└── <a class="DIR" href="./zombie/">zombie</a><br>
-	&nbsp;&nbsp;&nbsp; └── <a class="EXEC" href="./zombie/Main.java">Main.java</a><br>
-<br><br><p>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="Author" content="Made by 'tree'">
+		<meta name="GENERATOR" content="$Version: $ tree v1.5.2.2 (c) 1996 - 2009 by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro $">
+		<title>Programming Challenges</title>
+		<style type="text/css">
+			<!-- 
+			BODY { font-family : courier, monospace, sans-serif; }
+			P { font-weight: normal; font-family : courier, monospace, sans-serif; color: black; background-color: transparent;}
+			B { font-weight: normal; color: black; background-color: transparent;}
+			A:visited { font-weight : normal; text-decoration : none; background-color : transparent; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }
+			A:link    { font-weight : normal; text-decoration : none; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }
+			A:hover   { color : #000000; font-weight : normal; text-decoration : underline; background-color : yellow; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }
+			A:active  { color : #000000; font-weight: normal; background-color : transparent; margin : 0px 0px 0px 0px; padding : 0px 0px 0px 0px; display: inline; }
+			.VERSION { font-size: small; font-family : arial, sans-serif; }
+			.NORM { color: black; background-color: transparent;}
+			.FIFO { color: purple; background-color: transparent;}
+			.CHAR { color: yellow; background-color: transparent;}
+			.DIR  { color: blue; background-color: transparent;}
+			.BLOCK { color: yellow; background-color: transparent;}
+			.LINK { color: aqua; background-color: transparent;}
+			.SOCK { color: fuchsia; background-color: transparent;}
+			.EXEC { color: green; background-color: transparent;}
+			-->
+		</style>
+	</head>
+	<body>
+		<h1>Programming Challenges</h1>
+			<p><a href=".">.</a>
 
-9 directories, 37 files
-
-</p>
-	<hr>
-	<p class="VERSION">
-		 tree v2.0.2 © 1996 - 2022 by Steve Baker and Thomas Moore <br>
-		 HTML output hacked and copyleft © 1998 by Francesc Rocher <br>
-		 JSON output hacked and copyleft © 2014 by Florian Sesser <br>
-		 Charsets / OS/2 support © 2001 by Kyosuke Tokoro
-	</p>
-</body>
+<br>				   ├─ <a href="./averages/">averages</a>
+<br>				   │   └─ <a href="./averages/Main.java">Main.java</a>
+<br>				   ├─ <a href="./cgp/">cgp</a>
+<br>				   │   ├─ <a href="./cgp/page20/">page20</a><br>				   │   └─ <a href="./cgp/page33/">page33</a><br>				   ├─ <a href="./email_validator/">email_validator</a>
+<br>				   │   └─ <a href="./email_validator/Main.java">Main.java</a>
+<br>				   ├─ <a href="./gen-tree">gen-tree</a>
+<br>				   ├─ <a href="./mastermind/">mastermind</a>
+<br>				   │   └─ <a href="./mastermind/Main.java">Main.java</a>
+<br>				   ├─ <a href="./objective1.java">objective1.java</a>
+<br>				   ├─ <a href="./objective2.java">objective2.java</a>
+<br>				   ├─ <a href="./objective3.java">objective3.java</a>
+<br>				   ├─ <a href="./objective4/">objective4</a>
+<br>				   │   ├─ <a href="./objective4/challenge1.java">challenge1.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge10.java">challenge10.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge11.java">challenge11.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge2.java">challenge2.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge3.java">challenge3.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge4.java">challenge4.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge5.java">challenge5.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge6.java">challenge6.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge7.java">challenge7.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge8.java">challenge8.java</a>
+<br>				   │   ├─ <a href="./objective4/challenge9.java">challenge9.java</a>
+<br>				   │   └─ <a href="./objective4/periodictable.csv">periodictable.csv</a>
+<br>				   ├─ <a href="./passwd/">passwd</a>
+<br>				   │   ├─ <a href="./passwd/AddUser.java">AddUser.java</a>
+<br>				   │   ├─ <a href="./passwd/ChangePassword.java">ChangePassword.java</a>
+<br>				   │   ├─ <a href="./passwd/CheckPassword.java">CheckPassword.java</a>
+<br>				   │   ├─ <a href="./passwd/Main.java">Main.java</a>
+<br>				   │   ├─ <a href="./passwd/passwd.txt">passwd.txt</a>
+<br>				   │   ├─ <a href="./passwd/rockyou.txt">rockyou.txt</a>
+<br>				   │   ├─ <a href="./passwd/rockyou.txt.gz">rockyou.txt.gz</a>
+<br>				   │   └─ <a href="./passwd/rules.txt">rules.txt</a>
+<br>				   ├─ <a href="./sorts/">sorts</a>
+<br>				   │   └─ <a href="./sorts/Main.java">Main.java</a>
+<br>				   └─ <a href="./zombie/">zombie</a>
+<br>				   &nbsp;&nbsp;&nbsp; └─ <a href="./zombie/Main.java">Main.java</a>
+		<br><br>
+		</p>
+		<p>
+		<br><br>
+		</p>
+		<hr>
+		<p class="VERSION">
+			 tree v1.5.2.2 © 1996 - 2009 by Steve Baker and Thomas Moore <br>
+			 HTML output hacked and copyleft © 1998 by Francesc Rocher <br>
+			 Charsets / OS/2 support © 2001 by Kyosuke Tokoro
+		</p>
+	</body>
 </html>
