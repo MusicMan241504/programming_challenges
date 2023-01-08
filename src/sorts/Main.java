@@ -40,6 +40,14 @@ public class Main {
 		return sorted;
 	}
 
+	public static double[] randArray(int len, int min, int max) {
+		double[] list = new double[len];
+		for(int i = 0; i < len; i++) {
+			list[i] = Math.random()*(max-min)+min;
+		}
+		return list;
+	}
+
 	public static void bubbleSort(double[] list) {
 		boolean swaps = true;
 		while(swaps) {
@@ -66,14 +74,6 @@ public class Main {
 			list[i2+1] = tmp;
 			
 		}
-	}
-	
-	public static double[] randArray(int len, int min, int max) {
-		double[] list = new double[len];
-		for(int i = 0; i < len; i++) {
-			list[i] = Math.random()*(max-min)+min;
-		}
-		return list;
 	}
 	
 	public static void mergeSort(double[] list, int left, int right) {
