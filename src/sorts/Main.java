@@ -12,8 +12,8 @@ public class Main {
 		
 		//bubbleSort(list);
 		//insertionSort(list);
-		//mergeSort(list,0,list.length-1);
-		quickSort(list,0,list.length-1);
+		mergeSort(list,0,list.length-1);
+		//quickSort(list,0,list.length-1);
 		
 		long endTime = System.nanoTime();
 		long time = endTime-startTime;
