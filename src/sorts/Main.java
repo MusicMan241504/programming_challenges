@@ -126,7 +126,7 @@ public class Main {
 	}
 
 	public static void quickSort(double[] list, int left, int right) {
-		if left < right:
+		//if left < right:
 			
 	}
 }
