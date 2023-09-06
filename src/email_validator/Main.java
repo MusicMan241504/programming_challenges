@@ -1,15 +1,23 @@
 package email_validator;
 
+import java.util.Properties;
 import java.util.Scanner;
 import java.net.*;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.FileInputStream;
 
 public class Main {
+	
+	private static Properties prop;
 
 	public static void main(String[] args) throws IOException{
 		Scanner input = new Scanner(System.in);				//create scanner object
+		
+		prop = new Properties();					//creat properties object
+		prop.load(new FileInputStream("./src/email_validator/api_keys.properties"));
+
 		
 		System.out.print("Enter email: ");					//get email
 		String email = input.nextLine();
@@ -36,7 +44,7 @@ public class Main {
 	}
 	
 	static String whoisxmlapi(String email) throws IOException{
-		String api = "at_VoVzsBikS9Znl9QIjB90ERr287UAm";
+		String api = prop.getProperty("whoisxml_api");
 		String urlStr = "http://emailverification.whoisxmlapi.com/api/v2?apiKey=" + api + "&emailAddress=" + email;
 		URL url = new URL(urlStr);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -64,7 +72,7 @@ public class Main {
 	}
 	
 	static String quickemail(String email) throws IOException{
-		String api = "42b5b6ab744670c0cb0853be7a03efef1d8f5e4567947cdfef7e9bcedc25";
+		String api = prop.getProperty("quickemail_api");
 		String urlStr = "http://api.quickemailverification.com/v1/verify?email=" + email + "&apikey=" + api;
 		URL url = new URL(urlStr);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();

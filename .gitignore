@@ -3,3 +3,4 @@ bin/
 rockyou.*
 lib/
 .settings/
+./src/email_validator/api_keys.properties
